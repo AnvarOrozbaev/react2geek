@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/react2geek/static/css/main.d5849d84.css",
+    "main.js": "/react2geek/static/js/main.c2e9bcff.js",
+    "static/js/787.c379e6d3.chunk.js": "/react2geek/static/js/787.c379e6d3.chunk.js",
+    "index.html": "/react2geek/index.html",
+    "main.d5849d84.css.map": "/react2geek/static/css/main.d5849d84.css.map",
+    "main.c2e9bcff.js.map": "/react2geek/static/js/main.c2e9bcff.js.map",
+    "787.c379e6d3.chunk.js.map": "/react2geek/static/js/787.c379e6d3.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d5849d84.css",
+    "static/js/main.c2e9bcff.js"
+  ]
+}
