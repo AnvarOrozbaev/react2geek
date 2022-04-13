@@ -1,0 +1,29 @@
+$primary:   #864f12;
+
+.message-form{
+  margin-top: 2rem;
+  
+&__input{
+  border-radius: 10px;
+  border: 2px solid $primary;
+  border-right: none;
+  border-top-right-radius: 0 ;
+  border-bottom-right-radius: 0 ;
+}
+&__btn{
+  border-radius: 10px;
+  border: 2px solid $primary;
+
+  border-top-left-radius: 0 ;
+  border-bottom-left-radius: 0 ;
+  background-color: $primary;
+  color: #ffffff;
+  &:hover{
+    background-color: #ffffff;
+  color: $primary;
+  }
+  
+}
+
+
+}
