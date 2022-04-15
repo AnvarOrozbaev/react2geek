@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MessageForm render with snapshot 1`] = `
+<DocumentFragment>
+  <form
+    class="message-form"
+  >
+    <input
+      class="message-form__input"
+      placeholder="сообщение"
+      type="text"
+      value=""
+    />
+    <input
+      class="message-form__btn"
+      data-testid="message-form__btn"
+      type="submit"
+    />
+  </form>
+</DocumentFragment>
+`;

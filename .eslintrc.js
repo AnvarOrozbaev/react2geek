@@ -23,9 +23,10 @@ module.exports = {
     semi: ['warn', 'always']
   },
   overrides: [{
-    files: ['webpack.config.js'],
+    files: ['webpack.config.js',  '**/*.stories.*'],
     rules: {
-      '@typescript-eslint/no-var-requires': ['off']
+      '@typescript-eslint/no-var-requires': ['off'],
+      'import/no-anonymous-default-export': 'off'
     }
   }]
 };

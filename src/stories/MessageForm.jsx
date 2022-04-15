@@ -1,5 +1,5 @@
 import './MessageForm.scss';
-
+import React from 'react';
 export const MessageForm = ({ primary }) => {
   const mode = primary ? '--primary' : '--secondary';
   return (
@@ -9,7 +9,10 @@ export const MessageForm = ({ primary }) => {
         type="text"
         placeholder="сообщение"
       />
-      <input className={['message-form__btn', mode].join('')} type="submit" />
+      <input
+        className={['message-form__btn', mode].join('')}
+        type="submit"
+      />
     </form>
   );
 };
