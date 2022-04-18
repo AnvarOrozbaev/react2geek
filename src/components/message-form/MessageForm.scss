@@ -1,4 +1,4 @@
-$primary:#864f12;
+$primary:   #864f12;
 
 .message-form{
   margin-top: 2rem;
@@ -26,4 +26,13 @@ $primary:#864f12;
 }
 
 
+}
+
+.--primary{
+  background-color: $primary;
+  color:  #ffffff;
+}
+.--secondary{
+  background-color:  #ffffff;
+  color: $primary;
 }

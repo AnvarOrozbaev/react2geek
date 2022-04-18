@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { MessageForm } from './components/message-form/MessageForm';
 import { MessageList } from './components/message-list/MessageList';
-import { AUTHOR } from './const'
+import { AUTHOR } from './const';
 import './App.scss';
 function App() {
   const [messages, setMessages] = useState([]);
@@ -10,7 +10,10 @@ function App() {
     setMessages([...messages, { author, text }]);
   };
   useEffect(() => {
-    if (!messages.length || messages[messages.length - 1].author === AUTHOR.BOT) {
+    if (
+      !messages.length ||
+      messages[messages.length - 1].author === AUTHOR.BOT
+    ) {
       return;
     }
     const timeout = setTimeout(() => {

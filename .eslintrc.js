@@ -2,9 +2,20 @@ module.exports = {
   env: {
     browser: true,
     node: true,
-    es6: true
+    es6: true,
+    jest: true,
   },
-  extends: ['prettier', 'eslint:recommended', 'plugin:prettier/recommended', 'plugin:react/recommended', 'prettier', 'plugin:react-hooks/recommended', 'plugin:react/jsx-runtime', 'plugin:storybook/recommended'],
+  extends: [
+    'prettier', 
+    'eslint:recommended', 
+    'plugin:prettier/recommended', 
+    'plugin:react/recommended', 
+    'prettier', 
+    'plugin:react-hooks/recommended', 
+    'plugin:storybook/recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended',
+  ],
   parserOptions: {
     ecmaFeatures: {
       jsx: true
@@ -14,6 +25,7 @@ module.exports = {
   },
   plugins: ['react', 'prettier', 'react-hooks', 'jest'],
   rules: {
+    "react/react-in-jsx-scope": "off",
     'prettier/prettier': ['error', {
       singleQuote: true
     }],
