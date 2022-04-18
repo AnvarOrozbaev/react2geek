@@ -91,12 +91,7 @@
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.8.1"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint",
-      "pre-push": "npm run lint && npm test"
-    }
-  },
+
   "resolutions": {
     "@storybook/react/webpack": "^5",
     "@storybook/core-common/webpack": "^5",
