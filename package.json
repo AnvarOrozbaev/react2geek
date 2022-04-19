@@ -16,15 +16,16 @@
     "test": "jest && npm run loki:test",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage --colors",
+    "test:update": "jest --updateSnapshot",
     "loki:update": "npm run build-storybook && loki update --requireReference --reactUri file:./storybook-static",
     "loki:approve": "loki approve",
     "loki:test": "npm run build-storybook && loki test --requireReference --reactUri file:./storybook-static",
-    "chromatic": "npx chromatic --project-token=85d9ef568377"
+    "chromatic": "npx chromatic --project-token=a416c6094752"
   },
   "dependencies": {
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
-    "@mui/material": "^5.6.1",
+    "@mui/material": "^5.6.2",
     "prop-types": "^15.8.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
@@ -95,20 +96,6 @@
     "*.{js,jsx,ts,tsx,html,css,scss,sass}": [
       "npm run lint"
     ]
-  },
-  "loki": {
-    "configurations": {
-      "chrome.laptop": {
-        "target": "chrome.app",
-        "width": 1366,
-        "height": 768,
-        "deviceScaleFactor": 1,
-        "mobile": false
-      },
-      "chrome.iphone7": {
-        "target": "chrome.app",
-        "preset": "iPhone 7"
-      }
-    }
   }
+  
 }

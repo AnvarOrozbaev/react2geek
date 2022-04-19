@@ -1,8 +1,8 @@
 interface Author {
-  USER: string,
-  BOT: string,
+  USER: string;
+  BOT: string;
 }
-export const AUTHOR = {
+export const AUTHOR: Author = {
   USER: 'USER',
   BOT: 'BOT',
 };

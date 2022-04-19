@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ChatList render with snapshot 1`] = `
+<DocumentFragment>
+  <ul
+    class="MuiList-root MuiList-padding css-qagowl-MuiList-root"
+  >
+    <div
+      class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16dbwwz-MuiButtonBase-root-MuiListItemButton-root"
+      role="button"
+      tabindex="0"
+    >
+      <p
+        class="text"
+      >
+        chat-1
+      </p>
+      <span
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+      />
+    </div>
+    <div
+      class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16dbwwz-MuiButtonBase-root-MuiListItemButton-root"
+      role="button"
+      tabindex="0"
+    >
+      <p
+        class="text"
+      >
+        chat-2
+      </p>
+      <span
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+      />
+    </div>
+  </ul>
+</DocumentFragment>
+`;
