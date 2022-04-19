@@ -13,4 +13,4 @@ export const Primary = Template.bind({});
 Primary.args = {
   primary: true,
 };
-// https://www.chromatic.com/setup?appId=625e4d9c26ea96003a3ef6ba
+
