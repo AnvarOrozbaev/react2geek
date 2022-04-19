@@ -1,6 +1,4 @@
 module.exports = {
-  chromeSelector: '.container > *, #root > *, .story-decorator > *',
-  diffingEngine: 'pixelmatch',
   configurations: {
     'chrome.laptop': {
       target: 'chrome.app',
@@ -10,5 +8,4 @@ module.exports = {
       mobile: false,
     },
   },
-  fetchFailIgnore: 'localhost:6007/get',
 };
