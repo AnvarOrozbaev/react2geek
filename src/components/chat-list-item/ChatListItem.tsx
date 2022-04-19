@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import ListItemButton from '@mui/material/ListItemButton';
 import styles from './ChatListItem.module.scss';
 
@@ -23,6 +23,6 @@ export const ChatListItem: FC<ChatlistItemProps> = ({
       sx={{ maxHeight: 40, maxWidth: 150 }}
     >
       <p className={styles.text}>{chat.name}</p>
-    </ListItemButton>;
+    </ListItemButton>
   );
 };

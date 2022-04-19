@@ -1,6 +1,6 @@
 import React from 'react';
 import { ChatList } from './ChatList';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 describe('ChatList', () => {

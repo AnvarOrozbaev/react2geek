@@ -6,7 +6,7 @@ import '@testing-library/jest-dom';
 describe('ChatListItem', () => {
   it('ChatLististItem render', () => {
     const mockHandler = jest.fn();
-    const { getByRole } = render(
+    render(
       <ChatListItem
         chat={{ id: '1', name: 'chat-1' }}
         selectedId={'testId'}

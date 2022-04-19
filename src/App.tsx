@@ -15,12 +15,8 @@ interface Chat {
   id: string;
 }
 export const App: FC = () => {
-  const newChat = {
-    name: 'Chat-1',
-    id: nanoid(),
-  };
   const [messages, setMessages] = useState<Message[]>([]);
-  const [chats, setChats] = useState<Chat[]>([
+  const [chats] = useState<Chat[]>([
     { id: '1', name: 'chat-1' },
     { id: '2', name: 'chat-2' },
   ]);

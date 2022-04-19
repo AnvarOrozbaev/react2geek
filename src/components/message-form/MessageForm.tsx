@@ -1,9 +1,7 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { useState, useRef, memo } from 'react';
 import InputBase from '@mui/material/InputBase';
 import './MessageForm.scss';
-import { AUTHOR } from '../../const';
-import { nanoid } from 'nanoid';
 
 interface MessageFormProps {
   onSendMessage: (text: string) => void;
