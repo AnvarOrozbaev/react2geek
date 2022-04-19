@@ -13,8 +13,8 @@ describe('ChatListItem', () => {
         handleListItemClick={mockHandler}
       />
     );
-      const btn = screen.getByRole('button');
-      fireEvent.click(btn);
-      expect(mockHandler).toHaveBeenCalledTimes(1);
+    const btn = screen.getByRole('button');
+    fireEvent.click(btn);
+    expect(mockHandler).toHaveBeenCalledTimes(1);
   });
 });

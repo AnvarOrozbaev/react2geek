@@ -5,12 +5,13 @@ import React from 'react';
 export default {
   title: 'MessageForm',
   component: MessageForm,
-} as ComponentMeta<typeof MessageForm>
+} as ComponentMeta<typeof MessageForm>;
 
-const Template: ComponentStory<typeof MessageForm> = (args) => <MessageForm {...args} />;
+const Template: ComponentStory<typeof MessageForm> = (args) => (
+  <MessageForm {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
   primary: true,
 };
-

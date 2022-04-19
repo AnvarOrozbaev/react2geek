@@ -3,7 +3,7 @@ import React, { FC } from 'react';
 interface Message {
   author: string;
   text: string;
-  id: string
+  id: string;
 }
 
 interface MessageListProps {

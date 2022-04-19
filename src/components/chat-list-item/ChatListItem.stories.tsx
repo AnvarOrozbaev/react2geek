@@ -5,17 +5,19 @@ import React from 'react';
 export default {
   title: 'ChatListItem',
   component: ChatListItem,
-} as ComponentMeta<typeof ChatListItem>
+} as ComponentMeta<typeof ChatListItem>;
 
-const Template: ComponentStory<typeof ChatListItem> = (args) => <ChatListItem {...args} />;
+const Template: ComponentStory<typeof ChatListItem> = (args) => (
+  <ChatListItem {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
-  chat: {id: '1', name: 'chat-1' },
+  chat: { id: '1', name: 'chat-1' },
 };
 
 export const Selected = Template.bind({});
 Selected.args = {
-  chat: {id: '1', name: 'chat-1' },
-  selectedId: '1'
+  chat: { id: '1', name: 'chat-1' },
+  selectedId: '1',
 };
