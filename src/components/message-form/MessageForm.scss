@@ -2,19 +2,21 @@ $primary:   #864f12;
 
 .message-form{
   margin-top: 2rem;
+  display: flex;
+  align-items: center;
   
 &__input{
   border-radius: 10px;
-  border: 2px solid $primary;
+  border: 1px solid $primary;
   border-right: none;
   border-top-right-radius: 0 ;
   border-bottom-right-radius: 0 ;
   outline: none;
+  height: 1.2em;
 }
 &__btn{
   border-radius: 10px;
-  border: 2px solid $primary;
-
+  border: 1px solid $primary;
   border-top-left-radius: 0 ;
   border-bottom-left-radius: 0 ;
   &:hover{

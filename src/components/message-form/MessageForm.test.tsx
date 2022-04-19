@@ -5,19 +5,23 @@ import '@testing-library/jest-dom';
 
 describe('MessageForm', () => {
   it('render component', () => {
-    render(<MessageForm />);
+    const mockHandler = jest.fn();
+    render(<MessageForm onSendMessage={mockHandler}/>);
   });
   it('render with snapshot', () => {
-    const { asFragment } = render(<MessageForm />);
+    const mockHandler = jest.fn();
+    const { asFragment } = render(<MessageForm onSendMessage={mockHandler}/>);
     expect(asFragment()).toMatchSnapshot();
   });
   it('render btn', async () => {
-    render(<MessageForm />);
+    const mockHandler = jest.fn();
+    render(<MessageForm onSendMessage={mockHandler}/>);
     const btn = screen.getByTestId('message-form__btn');
     expect(btn).toBeInTheDocument();
   });
   it('render input', async () => {
-    const { getByPlaceholderText } = render(<MessageForm />);
+    const mockHandler = jest.fn();
+    const { getByPlaceholderText } = render(<MessageForm onSendMessage={mockHandler}/>);
     const input = getByPlaceholderText(/сообщение/i);
     expect(input).toBeInTheDocument();
   });
