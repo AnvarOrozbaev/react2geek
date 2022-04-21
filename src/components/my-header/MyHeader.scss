@@ -1,0 +1,10 @@
+
+.menu-list{
+  display: flex;
+  justify-content: space-between;
+  width: 15%;
+  list-style: none;
+  a {
+    text-decoration: none;
+  }
+}

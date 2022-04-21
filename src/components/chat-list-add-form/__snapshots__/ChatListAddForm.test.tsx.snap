@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ChatListAddForm render with snapshot 1`] = `
+<DocumentFragment>
+  <form
+    class="add-chat"
+  >
+    <input
+      class="add-chat__input"
+      placeholder="название чата"
+      value=""
+    />
+    <input
+      class="add-chat__btn"
+      data-testid="add-chat__btn"
+      type="submit"
+      value="+"
+    />
+  </form>
+</DocumentFragment>
+`;

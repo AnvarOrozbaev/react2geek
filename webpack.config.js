@@ -27,6 +27,7 @@ module.exports = {
       ? 'hidden-source-map'
       : 'eval-source-map',
   devServer: {
+    historyApiFallback: true,
     compress: true,
     port: 8000,
     client: {

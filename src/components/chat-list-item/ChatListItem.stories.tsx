@@ -1,6 +1,7 @@
 import { ChatListItem } from './ChatListItem';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 
 export default {
   title: 'ChatListItem',
@@ -8,16 +9,24 @@ export default {
 } as ComponentMeta<typeof ChatListItem>;
 
 const Template: ComponentStory<typeof ChatListItem> = (args) => (
-  <ChatListItem {...args} />
+  <BrowserRouter>
+    <ChatListItem {...args} />{' '}
+  </BrowserRouter>
 );
 
 export const Primary = Template.bind({});
 Primary.args = {
   chat: { id: '1', name: 'chat-1' },
+  handleListItemClick: () => {
+    console.log('hi');
+  },
 };
 
 export const Selected = Template.bind({});
 Selected.args = {
   chat: { id: '1', name: 'chat-1' },
   selectedId: '1',
+  handleListItemClick: () => {
+    console.log('hi');
+  },
 };
