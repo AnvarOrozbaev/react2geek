@@ -2,37 +2,131 @@
 
 exports[`ChatList render with snapshot 1`] = `
 <DocumentFragment>
-  <ul
-    class="MuiList-root MuiList-padding css-qagowl-MuiList-root"
+  <div
+    class="chats-wrapper"
   >
-    <div
-      class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16dbwwz-MuiButtonBase-root-MuiListItemButton-root"
-      role="button"
-      tabindex="0"
+    <form
+      class="add-chat"
     >
-      <p
-        class="text"
-      >
-        chat-1
-      </p>
-      <span
-        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+      <input
+        class="add-chat__input"
+        placeholder="название чата"
+        value=""
       />
-    </div>
-    <div
-      class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16dbwwz-MuiButtonBase-root-MuiListItemButton-root"
-      role="button"
-      tabindex="0"
+      <input
+        class="add-chat__btn"
+        data-testid="add-chat__btn"
+        type="submit"
+        value="+"
+      />
+    </form>
+    <ul
+      class="MuiList-root MuiList-padding css-1uvrni2-MuiList-root"
     >
-      <p
-        class="text"
+      <li
+        class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-1p823my-MuiListItem-root"
       >
-        chat-2
-      </p>
-      <span
-        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-      />
-    </div>
-  </ul>
+        <div
+          class="box"
+        >
+          <a
+            class="link"
+            href="/chats/chat-1"
+          >
+            <div
+              class="MuiListItemButton-root MuiListItemButton-gutters Mui-selected MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
+              data-testid="pick-chat__btn"
+              role="button"
+              tabindex="0"
+            >
+              <p
+                class="text"
+              >
+                chat-1
+              </p>
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </div>
+          </a>
+          <button
+            class="deletebtn"
+            data-testid="delete-chat__btn"
+            style="background: rgba(25, 118, 210, 0.08);"
+          >
+            x
+          </button>
+        </div>
+      </li>
+      <li
+        class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-1p823my-MuiListItem-root"
+      >
+        <div
+          class="box"
+        >
+          <a
+            class="link"
+            href="/chats/chat-1"
+          >
+            <div
+              class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
+              data-testid="pick-chat__btn"
+              role="button"
+              tabindex="0"
+            >
+              <p
+                class="text"
+              >
+                chat-1
+              </p>
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </div>
+          </a>
+          <button
+            class="deletebtn"
+            data-testid="delete-chat__btn"
+          >
+            x
+          </button>
+        </div>
+      </li>
+      <li
+        class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-1p823my-MuiListItem-root"
+      >
+        <div
+          class="box"
+        >
+          <a
+            class="link"
+            href="/chats/chat-1"
+          >
+            <div
+              class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
+              data-testid="pick-chat__btn"
+              role="button"
+              tabindex="0"
+            >
+              <p
+                class="text"
+              >
+                chat-1
+              </p>
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </div>
+          </a>
+          <button
+            class="deletebtn"
+            data-testid="delete-chat__btn"
+          >
+            x
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
 </DocumentFragment>
 `;

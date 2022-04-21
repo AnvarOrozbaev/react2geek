@@ -1,4 +1,38 @@
 $primary: #864f12;
+.link{
+  color: $primary;
+  text-decoration: none;
+  border: 1px solid $primary;
+  border-right: none;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  display: flex;
+  width:100px;
+
+}
+.deletebtn{
+
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  color: $primary;
+  border: 1px solid $primary;
+  border-left: none;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  &:hover{
+    background-color: #0000000a;
+  }
+
+}
+.box{
+  display: flex;
+  &:hover{
+    background-color: #0000000a;
+  }
+}
 .text{
- color: $primary
+  display: inline;
+  margin: 0;
+  word-break: break-word;
 }
