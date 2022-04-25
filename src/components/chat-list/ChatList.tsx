@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
 import List from '@mui/material/List';
 import { ChatListItem } from '../chat-list-item/ChatListItem';
-import { Chats } from 'src/pages/chats/Chats';
+import { Chats } from 'src/pages/chats/Chats.tsx';
+import type { Message } from 'src/pages/chats/Chats.tsx';
 import './ChatList.scss';
 import { ChatListAddForm } from '../chat-list-add-form/ChatListAddForm';
 
@@ -20,19 +21,33 @@ export const ChatList: FC<ChatListProps> = ({
   handleChatClick,
   deleteChat,
 }) => {
+
+  type Entries<T> = {
+    [K in keyof T]: [K, T[K]];
+  }[keyof T][];
+
+  interface ChatProps {
+    name: string;
+    id: string;
+  }
+
+  const entries: Entries<Chats> = Object.entries(chats);
   return (
     <div className="chats-wrapper">
       <ChatListAddForm handleAddChat={addChat} />
       <List sx={{ maxWidth: 150 }}>
-        {Object.entries(chats).map((chat) => (
+        {entries.map((chat) => {
+          const chatProps: ChatProps = { name: chat[1].name, id: chat[0] }
+          return (
           <ChatListItem
-            chat={{ name: chat[1].name, id: chat[0] }}
+            chat={chatProps}
             key={chat[0]}
             selectedId={selectedId}
             handleListItemClick={handleChatClick}
             deleteChat={deleteChat}
           />
-        ))}
+        )}
+        )}
       </List>
     </div>
   );
