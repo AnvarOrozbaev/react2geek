@@ -1,11 +1,11 @@
 import React, { FC, useState, useEffect, useCallback } from 'react';
-import { MessageForm } from '../../components/message-form/MessageForm';
-import { MessageList } from '../../components/message-list/MessageList';
-import { ChatList } from '../../components/chat-list/ChatList';
-import { AUTHOR } from '../../const';
+import { MessageForm } from '@/components/message-form/MessageForm';
+import { MessageList } from '@/components/message-list/MessageList';
+import { ChatList } from '@/components/chat-list/ChatList';
+import { AUTHOR } from '@/const';
+import { Navigate } from 'react-router-dom';
 import { nanoid } from 'nanoid';
 import './Chats.scss';
-import { Navigate } from 'react-router-dom';
 
 export interface Message {
   author: string;
