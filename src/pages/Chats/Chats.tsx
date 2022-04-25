@@ -17,7 +17,7 @@ export interface Chat {
   id: string;
   messages: Message[];
 }
-export interface Chats {
+export interface ChatsType {
   [id: string]: {
     name: string;
     messages: Message[];
@@ -25,7 +25,7 @@ export interface Chats {
 }
 
 export const Chats: FC = () => {
-  const [chats, setChats] = useState<Chats>({});
+  const [chats, setChats] = useState<ChatsType>({});
   const [selectedId, setSelectedId] = useState('');
 
   useEffect(() => {

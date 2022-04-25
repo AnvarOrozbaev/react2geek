@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 import List from '@mui/material/List';
 import { ChatListItem } from '../chat-list-item/ChatListItem';
-import { Chats } from 'src/pages/chats/Chats';
+import { ChatsType } from 'src/pages/chats/Chats';
 import './ChatList.scss';
 import { ChatListAddForm } from '../chat-list-add-form/ChatListAddForm';
 
 interface ChatListProps {
-  chats: Chats;
+  chats: ChatsType;
   selectedId: string;
   addChat: (name: string) => void;
   handleChatClick: (id: string) => void;
@@ -29,7 +29,7 @@ export const ChatList: FC<ChatListProps> = ({
     id: string;
   }
 
-  const entries: Entries<Chats> = Object.entries(chats);
+  const entries: Entries<ChatsType> = Object.entries(chats);
   return (
     <div className="chats-wrapper">
       <ChatListAddForm handleAddChat={addChat} />
