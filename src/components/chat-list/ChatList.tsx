@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import List from '@mui/material/List';
 import { ChatListItem } from '../chat-list-item/ChatListItem';
-import { Chats } from '../../pages/Chats/Chats';
+import { Chats } from '../../pages/chats/Chats';
 import './ChatList.scss';
 import { ChatListAddForm } from '../chat-list-add-form/ChatListAddForm';
 
