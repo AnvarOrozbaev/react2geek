@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import { Home } from '@/pages/Home';
 import { Profile } from '@/pages/profile/Profile';
-import { Chats } from '@/pages/chats/Chats.tsx';
+import { Chats } from '@/pages/chats/Chats';
 import { MyHeader } from '@/components/my-header/MyHeader';
 
 export const App: FC = () => {
