@@ -64,9 +64,7 @@ export const Profile: FC = () => {
           type="checkbox"
           className="profile-checkbox"
           checked={isChecked}
-          onChange={() => {
-            toggle;
-          }}
+          onChange={toggle}
         />
         <button
           onClick={toggle}
