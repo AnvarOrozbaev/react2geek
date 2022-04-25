@@ -2,27 +2,12 @@ import React, { FC, useState, useEffect, useCallback } from 'react';
 import { MessageForm } from '@/components/message-form/MessageForm';
 import { MessageList } from '@/components/message-list/MessageList';
 import { ChatList } from '@/components/chat-list/ChatList';
+import { Message, ChatsType, Chat } from './Chats.types'
 import { AUTHOR } from '@/const';
 import { Navigate } from 'react-router-dom';
 import { nanoid } from 'nanoid';
 import './Chats.scss';
 
-export interface Message {
-  author: string;
-  text: string;
-  id: string;
-}
-export interface Chat {
-  name: string;
-  id: string;
-  messages: Message[];
-}
-export interface ChatsType {
-  [id: string]: {
-    name: string;
-    messages: Message[];
-  };
-}
 
 export const Chats: FC = () => {
   const [chats, setChats] = useState<ChatsType>({});
