@@ -1,10 +1,19 @@
 import React, { FC } from 'react';
 import List from '@mui/material/List';
 import { ChatListItem } from '../chat-list-item/ChatListItem';
-import { ChatsType } from 'src/pages/chats/Chats';
 import './ChatList.scss';
 import { ChatListAddForm } from '../chat-list-add-form/ChatListAddForm';
-
+export interface Message {
+  author: string;
+  text: string;
+  id: string;
+}
+export interface ChatsType {
+  [id: string]: {
+    name: string;
+    messages: Message[];
+  };
+}
 interface ChatListProps {
   chats: ChatsType;
   selectedId: string;
