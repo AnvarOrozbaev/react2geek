@@ -23,12 +23,8 @@ export interface ChatsType {
     messages: Message[];
   };
 }
-export interface ChatsProps {
-  lintResolver: boolean;
-}
 
-export const Chats: FC<ChatsProps> = ({lintResolver}) => {
-  console.log(lintResolver)
+ const Chats: FC = () => {
   const [chats, setChats] = useState<ChatsType>({});
   const [selectedId, setSelectedId] = useState('');
 
@@ -132,3 +128,4 @@ export const Chats: FC<ChatsProps> = ({lintResolver}) => {
     </div>
   );
 };
+export default Chats

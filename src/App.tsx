@@ -2,11 +2,10 @@ import React, { FC } from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import { Home } from '@/pages/Home';
 import { Profile } from '@/pages/profile/Profile';
-import { Chats } from 'src/pages/chats/Chats';
+import  Chats  from '@/pages/chats/Chats';
 import { MyHeader } from '@/components/my-header/MyHeader';
 
 export const App: FC = () => {
-  const bool = false
   return (
     <HashRouter>
       <Routes>
@@ -24,11 +23,11 @@ export const App: FC = () => {
           />
           <Route
             path="chats"
-            element={<Chats lintResolver={bool} />}
+            element={<Chats />}
           >
             <Route
               path=":chatId"
-              element={<Chats lintResolver={true}/>}
+              element={<Chats />}
             ></Route>
           </Route>
         </Route>
