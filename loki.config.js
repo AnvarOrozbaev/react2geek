@@ -7,9 +7,9 @@ module.exports = {
       deviceScaleFactor: 1,
       mobile: false,
     },
-    "chrome.iphone7": {
-      target: "chrome.app",
-      preset: "iPhone 7"
+    'chrome.iphone7': {
+      target: 'chrome.app',
+      preset: 'iPhone 7',
     },
   },
 };
