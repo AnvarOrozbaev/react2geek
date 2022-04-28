@@ -5,18 +5,27 @@
   margin-bottom: 30px;
 }
 .profile-checkbox{
-  width: 50px;
-  height: 50px;
+  margin: 0 10px 0 10px;
+  cursor:pointer;
 }
 .profile-container {
   text-align: center;
-  max-width: 600px;
+  max-width: 1400px;
   margin: 0 auto;
+  height: 100vh;
 
 }
-.profile-checkbox-btn{
-  width: 50px;
-  height: 50px;
-  background-color: yellowgreen;
-  padding: 0;
+.profile-input{
+  border: none;
+  border-bottom: 3px solid #000000;
+  outline-color: #000000;
+}
+
+.profile-btn{
+border: none;
+border-bottom: 3px solid #000000;
+background-color: rgba(82, 82, 81, 0.267);
+}
+.checkbox-wrapper{
+  margin-top: 1em
 }

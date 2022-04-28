@@ -1,5 +1,9 @@
 import { Action } from 'redux';
-import reducer, { checkboxToggled, changeName } from './profileSlice';
+import reducer, {
+  checkboxToggled,
+  changeName,
+  checkboxSetTrue,
+} from './profileSlice';
 
 describe('profileReducer', () => {
   const emptyActions: Action = {
@@ -27,6 +31,26 @@ describe('profileReducer', () => {
       name: '',
     };
     expect(reducer(previousState, checkboxToggled())).toEqual({
+      isChecked: true,
+      name: '',
+    });
+  });
+  test('isChecked set true', () => {
+    const previousState = {
+      isChecked: false,
+      name: '',
+    };
+    expect(reducer(previousState, checkboxSetTrue())).toEqual({
+      isChecked: true,
+      name: '',
+    });
+  });
+  test('isChecked do not set false when invoke checkboxSetTrue ', () => {
+    const previousState = {
+      isChecked: true,
+      name: '',
+    };
+    expect(reducer(previousState, checkboxSetTrue())).toEqual({
       isChecked: true,
       name: '',
     });

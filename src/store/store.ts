@@ -1,9 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import profileReducer from '@/pages/profile/profileSlice';
-
+import profileReducer from '../pages/profile/profileSlice';
+import chatsReducer from '../pages/chats/chatsSlice';
 export const store = configureStore({
   reducer: {
-    profile: profileReducer,
+    profileState: profileReducer,
+    chatsState: chatsReducer,
   },
   devTools: process.env.NODE_ENV !== 'production',
 });

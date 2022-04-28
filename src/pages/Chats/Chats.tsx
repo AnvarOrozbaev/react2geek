@@ -1,33 +1,35 @@
-import React, { FC, useState, useEffect, useCallback } from 'react';
-import { MessageForm } from '@/components/message-form/MessageForm';
-import { MessageList } from '@/components/message-list/MessageList';
-import { ChatList } from '@/components/chat-list/ChatList';
-import { AUTHOR } from '@/const';
+import React, { FC, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Navigate } from 'react-router-dom';
+import { MessageForm } from '../../components/message-form/MessageForm';
+import { MessageList } from '../../components/message-list/MessageList';
+import { ChatList } from '../../components/chat-list/ChatList';
+import { AUTHOR } from '../../const';
 import { nanoid } from 'nanoid';
+import {
+  addMessage,
+  selectSelectedId,
+  selectChats,
+} from '../../pages/chats/chatsSlice';
+import type { RootState } from '../../store/store';
 import './Chats.scss';
 
-export interface Message {
-  author: string;
-  text: string;
-  id: string;
-}
-export interface Chat {
-  name: string;
-  id: string;
-  messages: Message[];
-}
-export interface ChatsType {
-  [id: string]: {
-    name: string;
-    messages: Message[];
-  };
-}
-
 export const Chats: FC = () => {
-  const [chats, setChats] = useState<ChatsType>({});
-  const [selectedId, setSelectedId] = useState('');
-
+  const chats = useSelector(selectChats);
+  const selectedId = useSelector(selectSelectedId);
+  const userName = useSelector((state: RootState) => state.profileState.name);
+  const dispatch = useDispatch();
+  const handleMessageSubmit = (value: string) => {
+    let author;
+    userName.length > 0 ? (author = userName) : (author = AUTHOR.USER);
+    dispatch(
+      addMessage({
+        text: value,
+        author,
+        id: nanoid(),
+      })
+    );
+  };
   useEffect(() => {
     if (selectedId !== '') {
       if (
@@ -47,53 +49,12 @@ export const Chats: FC = () => {
           text: 'robot message',
           id: nanoid(),
         };
-        setChats({
-          ...chats,
-          [selectedId]: {
-            ...chats[selectedId],
-            messages: [...chats[selectedId].messages, botMessage],
-          },
-        });
+        dispatch(addMessage(botMessage));
       }, 1500);
     }
     return () => clearTimeout(timeout);
-  }, [chats, selectedId]);
+  }, [chats, selectedId, dispatch]);
 
-  const handleMessageSubmit = useCallback(
-    (text: string) => {
-      const newMessage = {
-        author: AUTHOR.USER,
-        text,
-        id: nanoid(),
-      };
-      setChats((prev) => ({
-        ...prev,
-        [selectedId]: {
-          ...prev[selectedId],
-          messages: [...prev[selectedId].messages, newMessage],
-        },
-      }));
-    },
-    [selectedId]
-  );
-  const handleChatClick = (id: string) => {
-    setSelectedId(id);
-  };
-  const deleteChat = (id: string) => {
-    setChats((prev) => {
-      const newChats = { ...prev };
-      delete newChats[id];
-      return newChats;
-    });
-    setSelectedId('');
-  };
-  const addChat = (name: string) => {
-    const id = nanoid();
-    setChats({
-      ...chats,
-      [id]: { name, messages: [] },
-    });
-  };
   const keys = Object.keys(chats);
 
   if (
@@ -111,13 +72,7 @@ export const Chats: FC = () => {
 
   return (
     <div className="container">
-      <ChatList
-        chats={chats}
-        addChat={addChat}
-        selectedId={selectedId}
-        handleChatClick={handleChatClick}
-        deleteChat={deleteChat}
-      />
+      <ChatList />
       {chats[selectedId] && (
         <div className="messages-container">
           <MessageForm onSendMessage={handleMessageSubmit} />

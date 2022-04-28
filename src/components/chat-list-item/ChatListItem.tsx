@@ -20,13 +20,6 @@ export const ChatListItem: FC<ChatlistItemProps> = ({
   handleListItemClick,
   deleteChat,
 }) => {
-  const handleDeleteChat = (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-    id: string
-  ) => {
-    deleteChat(id);
-  };
-
   return (
     <ListItem>
       <div className={styles.box}>
@@ -50,7 +43,7 @@ export const ChatListItem: FC<ChatlistItemProps> = ({
               : {}
           }
           data-testid="delete-chat__btn"
-          onClick={(e) => handleDeleteChat(e, chat.id)}
+          onClick={() => deleteChat(chat.id)}
         >
           x
         </button>

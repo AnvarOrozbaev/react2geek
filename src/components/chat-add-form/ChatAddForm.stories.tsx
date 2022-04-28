@@ -1,16 +1,16 @@
-import { ChatListAddForm } from './ChatListAddForm';
+import { ChatAddForm } from './ChatAddForm';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
 export default {
-  title: 'ChatListAddForm',
-  component: ChatListAddForm,
-} as ComponentMeta<typeof ChatListAddForm>;
+  title: 'ChatAddForm',
+  component: ChatAddForm,
+} as ComponentMeta<typeof ChatAddForm>;
 
-const Template: ComponentStory<typeof ChatListAddForm> = (args) => (
+const Template: ComponentStory<typeof ChatAddForm> = (args) => (
   <BrowserRouter>
-    <ChatListAddForm {...args} />
+    <ChatAddForm {...args} />
   </BrowserRouter>
 );
 

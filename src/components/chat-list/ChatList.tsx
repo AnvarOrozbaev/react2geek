@@ -1,57 +1,48 @@
 import React, { FC } from 'react';
-import List from '@mui/material/List';
+import { useSelector, useDispatch } from 'react-redux';
 import { ChatListItem } from '../chat-list-item/ChatListItem';
-import './ChatList.scss';
-import { ChatListAddForm } from '../chat-list-add-form/ChatListAddForm';
-export interface Message {
-  author: string;
-  text: string;
-  id: string;
-}
-export interface ChatsType {
-  [id: string]: {
-    name: string;
-    messages: Message[];
-  };
-}
-interface ChatListProps {
-  chats: ChatsType;
-  selectedId: string;
-  addChat: (name: string) => void;
-  handleChatClick: (id: string) => void;
-  deleteChat: (id: string) => void;
-}
-
-export const ChatList: FC<ChatListProps> = ({
-  chats,
-  selectedId,
-  addChat,
-  handleChatClick,
+import { ChatAddForm } from '../chat-add-form/ChatAddForm';
+import {
   deleteChat,
-}) => {
-  type Entries<T> = {
-    [K in keyof T]: [K, T[K]];
-  }[keyof T][];
+  setSelectedId,
+  addChat,
+  selectChats,
+  selectSelectedId,
+} from '../../pages/chats/chatsSlice';
+import List from '@mui/material/List';
+import { ChatProps, Entries, ChatsType } from './types';
+import './ChatList.scss';
+import { nanoid } from '@reduxjs/toolkit';
 
-  interface ChatProps {
-    name: string;
-    id: string;
-  }
-
+export const ChatList: FC = () => {
+  const chats = useSelector(selectChats);
+  const dispatch = useDispatch();
+  const handleAddChat = (name: string) => {
+    const id = nanoid();
+    dispatch(addChat({ name, id }));
+  };
   const entries: Entries<ChatsType> = Object.entries(chats);
+  const selectedId = useSelector(selectSelectedId);
+  const handleDeleteChat = (id: string) => {
+    dispatch(deleteChat(id));
+    dispatch(setSelectedId(''));
+  };
+  const handleListItemClick = (id: string) => {
+    dispatch(setSelectedId(id));
+  };
   return (
     <div className="chats-wrapper">
-      <ChatListAddForm handleAddChat={addChat} />
+      <ChatAddForm handleAddChat={handleAddChat} />
       <List sx={{ maxWidth: 150 }}>
         {entries.map((chat) => {
           const chatProps: ChatProps = { name: chat[1].name, id: chat[0] };
           return (
             <ChatListItem
-              chat={chatProps}
               key={chat[0]}
+              chat={chatProps}
               selectedId={selectedId}
-              handleListItemClick={handleChatClick}
-              deleteChat={deleteChat}
+              handleListItemClick={handleListItemClick}
+              deleteChat={handleDeleteChat}
             />
           );
         })}

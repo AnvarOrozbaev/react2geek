@@ -4,24 +4,22 @@ import InputBase from '@mui/material/InputBase';
 import './MessageForm.scss';
 
 interface MessageFormProps {
-  onSendMessage: (text: string) => void;
   primary?: boolean;
+  onSendMessage: (text: string) => void;
 }
 export const MessageForm = memo<MessageFormProps>(
-  ({ onSendMessage, primary }) => {
+  ({ primary, onSendMessage }) => {
     const mode = primary ? '--secondary' : '--primary';
     const [value, setValue] = useState<string>('');
     const inputRef = useRef<HTMLInputElement>(null);
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       setValue(e.target.value);
     };
-
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       if (value.length === 0) {
         return;
       }
-
       onSendMessage(value);
       setValue('');
       if (inputRef.current) {

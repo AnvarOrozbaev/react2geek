@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ChatListAddForm render with snapshot 1`] = `
+exports[`ChatAddForm render with snapshot 1`] = `
 <DocumentFragment>
   <form
     class="add-chat"

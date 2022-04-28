@@ -1,10 +1,10 @@
 import React, { FC, useState } from 'react';
-import './ChatListAddForm.scss';
+import './ChatAddForm.scss';
 
 interface ChatListddFormProps {
   handleAddChat: (name: string) => void;
 }
-export const ChatListAddForm: FC<ChatListddFormProps> = ({ handleAddChat }) => {
+export const ChatAddForm: FC<ChatListddFormProps> = ({ handleAddChat }) => {
   const [name, setName] = useState('');
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>, name: string) => {
     e.preventDefault();

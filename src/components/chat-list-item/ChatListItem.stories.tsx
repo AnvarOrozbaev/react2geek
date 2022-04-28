@@ -17,16 +17,4 @@ const Template: ComponentStory<typeof ChatListItem> = (args) => (
 export const Primary = Template.bind({});
 Primary.args = {
   chat: { id: '1', name: 'chat-1' },
-  handleListItemClick: () => {
-    console.log('hi');
-  },
-};
-
-export const Selected = Template.bind({});
-Selected.args = {
-  chat: { id: '1', name: 'chat-1' },
-  selectedId: '1',
-  handleListItemClick: () => {
-    console.log('hi');
-  },
 };
