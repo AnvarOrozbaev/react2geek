@@ -10,7 +10,7 @@ import {
   selectSelectedId,
 } from '../../pages/chats/chatsSlice';
 import List from '@mui/material/List';
-import { ChatProps, Entries, ChatsType } from './types';
+import { ChatProps, Entries, ChatsType } from '../types';
 import './ChatList.scss';
 import { nanoid } from '@reduxjs/toolkit';
 

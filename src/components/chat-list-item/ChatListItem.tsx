@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import ListItemButton from '@mui/material/ListItemButton';
-import styles from './ChatListItem.module.scss';
 import { Link } from 'react-router-dom';
 import { ListItem } from '@mui/material';
+import styles from './ChatListItem.module.scss';
 
 interface Chat {
   name: string;

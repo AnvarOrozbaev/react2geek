@@ -1,21 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { RootState } from '../../store/store';
-export interface Message {
-  author: string;
-  text: string;
-  id: string;
-}
-export interface ChatsType {
-  [id: string]: {
-    name: string;
-    messages: Message[];
-  };
-}
-export interface ChatsState {
+import { ChatsType } from '../../components/types';
+
+export interface ChatState {
   chats: ChatsType;
   selectedId: string;
 }
-const initialState: ChatsState = {
+const initialState: ChatState = {
   chats: {},
   selectedId: '',
 };
