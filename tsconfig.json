@@ -6,17 +6,6 @@
       }
     ],
     "baseUrl": ".",
-    "paths": {
-      "src/*": [
-        "./src/*"
-      ],
-      "@/*": [
-        "./src/*"
-      ],
-      "components/*": [
-        "src/components/*"
-      ],
-    },
     /* Projects */
     // "incremental": true,                              /* Enable incremental compilation */
     // "composite": true,                                /* Enable constraints that allow a TypeScript project to be used with project references. */
