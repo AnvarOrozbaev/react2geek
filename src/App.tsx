@@ -7,6 +7,7 @@ import { MyHeader } from './components/my-header/MyHeader';
 import { changeName, checkboxSetTrue } from './pages/profile/profileSlice';
 import { useDispatch } from 'react-redux';
 
+
 export const App: FC = () => {
   const dispatch = useDispatch();
   useEffect(() => {
