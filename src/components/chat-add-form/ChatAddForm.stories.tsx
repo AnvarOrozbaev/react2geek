@@ -1,7 +1,7 @@
 import { ChatAddForm } from './ChatAddForm';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 
 export default {
   title: 'ChatAddForm',
@@ -9,9 +9,9 @@ export default {
 } as ComponentMeta<typeof ChatAddForm>;
 
 const Template: ComponentStory<typeof ChatAddForm> = (args) => (
-  <BrowserRouter>
+  <MemoryRouter>
     <ChatAddForm {...args} />
-  </BrowserRouter>
+  </MemoryRouter>
 );
 
 export const Primary = Template.bind({});

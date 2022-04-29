@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC, useEffect, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import { MessageForm } from '../../components/message-form/MessageForm';
@@ -54,8 +54,7 @@ export const Chats: FC = () => {
     }
     return () => clearTimeout(timeout);
   }, [chats, selectedId, dispatch]);
-
-  const keys = Object.keys(chats);
+  const keys = useMemo<Array<keyof typeof chats>>(()=>Object.keys(chats),[chats])
 
   if (
     keys.length > 0 &&

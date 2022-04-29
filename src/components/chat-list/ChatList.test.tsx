@@ -1,31 +1,31 @@
 import React from 'react';
 import { render, fireEvent } from '../../test-utils';
 import { ChatList } from './ChatList';
-import { BrowserRouter } from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 import '@testing-library/jest-dom';
 
 describe('ChatList', () => {
   const mockAddChat = jest.fn();
   it('render component', () => {
     render(
-      <BrowserRouter>
+      <MemoryRouter>
         <ChatList />
-      </BrowserRouter>
+      </MemoryRouter>
     );
   });
   it('render with snapshot', () => {
     const { asFragment } = render(
-      <BrowserRouter>
+      <MemoryRouter>
         <ChatList />
-      </BrowserRouter>
+      </MemoryRouter>
     );
     expect(asFragment()).toMatchSnapshot();
   });
   it('form behavior when input is empty', async () => {
     const { getByTestId, getByPlaceholderText } = render(
-      <BrowserRouter>
+      <MemoryRouter>
         <ChatList />
-      </BrowserRouter>
+      </MemoryRouter>
     );
     const btn = getByTestId('add-chat__btn');
     const input = getByPlaceholderText(/название чата/i);

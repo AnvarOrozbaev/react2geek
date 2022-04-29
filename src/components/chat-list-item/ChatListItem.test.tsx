@@ -2,34 +2,34 @@ import React from 'react';
 import { ChatListItem } from './ChatListItem';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 
 describe('ChatListItem', () => {
   const mockHandler = jest.fn();
   const mockDeleteChat = jest.fn();
   it('ChatLististItem render', () => {
     render(
-      <BrowserRouter>
+      <MemoryRouter>
         <ChatListItem
           chat={{ id: '1', name: 'chat-1' }}
           selectedId={'1'}
           handleListItemClick={mockHandler}
           deleteChat={mockDeleteChat}
         />{' '}
-      </BrowserRouter>
+      </MemoryRouter>
     );
   });
 
   it('to pick chat', () => {
     render(
-      <BrowserRouter>
+      <MemoryRouter>
         <ChatListItem
           chat={{ id: '1', name: 'chat-1' }}
           selectedId={'1'}
           handleListItemClick={mockHandler}
           deleteChat={mockDeleteChat}
         />{' '}
-      </BrowserRouter>
+      </MemoryRouter>
     );
     const btn = screen.getByTestId('pick-chat__btn');
     fireEvent.click(btn);
@@ -37,14 +37,14 @@ describe('ChatListItem', () => {
   });
   it('delete btn click', async () => {
     const { getByTestId } = render(
-      <BrowserRouter>
+      <MemoryRouter>
         <ChatListItem
           chat={{ id: '1', name: 'chat-1' }}
           selectedId={'1'}
           handleListItemClick={mockHandler}
           deleteChat={mockDeleteChat}
         />
-      </BrowserRouter>
+      </MemoryRouter>
     );
     const btn = getByTestId('delete-chat__btn');
     fireEvent.click(btn);

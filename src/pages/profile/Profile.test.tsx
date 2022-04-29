@@ -1,22 +1,22 @@
 import React from 'react';
 import { render, fireEvent } from '../../test-utils';
 import { Profile } from './Profile';
-import { BrowserRouter } from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 import '@testing-library/jest-dom';
 
 describe('Profile test', () => {
   it('render Profile', () => {
     render(
-      <BrowserRouter>
+      <MemoryRouter>
         <Profile />
-      </BrowserRouter>
+      </MemoryRouter>
     );
   });
   it('form submit', () => {
     const { getByText, getByPlaceholderText } = render(
-      <BrowserRouter>
+      <MemoryRouter>
         <Profile />
-      </BrowserRouter>
+      </MemoryRouter>
     );
     const btn = getByText(/изменить/i);
     const input = getByPlaceholderText(/введите имя/i);
@@ -26,9 +26,9 @@ describe('Profile test', () => {
   });
   it('checkbox can checked', () => {
     const { getByTestId } = render(
-      <BrowserRouter>
+      <MemoryRouter>
         <Profile />
-      </BrowserRouter>
+      </MemoryRouter>
     );
     const checkbox = getByTestId('profile-checkbox');
     fireEvent.click(checkbox);
@@ -36,9 +36,9 @@ describe('Profile test', () => {
   });
   it('form behavior when input is empty', async () => {
     const { getByText, getByTestId, getByPlaceholderText } = render(
-      <BrowserRouter>
+      <MemoryRouter>
         <Profile />
-      </BrowserRouter>
+      </MemoryRouter>
     );
     const btn = getByText(/изменить/i);
     const input = getByPlaceholderText(/введите имя/i);

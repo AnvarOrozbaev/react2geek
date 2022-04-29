@@ -1,21 +1,21 @@
 import React from 'react';
 import { render, fireEvent } from '../../test-utils';
 import { Chats } from './Chats';
-import { BrowserRouter } from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 import '@testing-library/jest-dom';
 describe('Chats test', () => {
   it('render', () => {
     render(
-      <BrowserRouter>
+      <MemoryRouter>
         <Chats />
-      </BrowserRouter>
+      </MemoryRouter>
     );
   });
   it('form submit', () => {
     const { getByText, getByTestId, getByPlaceholderText } = render(
-      <BrowserRouter>
+      <MemoryRouter>
         <Chats />
-      </BrowserRouter>
+      </MemoryRouter>
     );
     const btn = getByTestId('add-chat__btn');
     const input = getByPlaceholderText(/название чата/i);
@@ -25,9 +25,9 @@ describe('Chats test', () => {
   });
   it('show message form ', () => {
     const { getByText, getByTestId, getByPlaceholderText } = render(
-      <BrowserRouter>
+      <MemoryRouter>
         <Chats />
-      </BrowserRouter>
+      </MemoryRouter>
     );
     const btn = getByTestId('add-chat__btn');
     const input = getByPlaceholderText(/название чата/i);
@@ -39,9 +39,9 @@ describe('Chats test', () => {
   });
   it('show message form ', () => {
     const { getByText, getByTestId, getByPlaceholderText } = render(
-      <BrowserRouter>
+      <MemoryRouter>
         <Chats />
-      </BrowserRouter>
+      </MemoryRouter>
     );
     const btn = getByTestId('add-chat__btn');
     const input = getByPlaceholderText(/название чата/i);

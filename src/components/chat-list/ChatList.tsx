@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { ChatListItem } from '../chat-list-item/ChatListItem';
 import { ChatAddForm } from '../chat-add-form/ChatAddForm';
@@ -21,7 +21,10 @@ export const ChatList: FC = () => {
     const id = nanoid();
     dispatch(addChat({ name, id }));
   };
-  const entries: Entries<ChatsType> = Object.entries(chats);
+  const entries = useMemo<Entries<ChatsType>>(
+    () => Object.entries(chats),
+    [chats]
+  );
   const selectedId = useSelector(selectSelectedId);
   const handleDeleteChat = (id: string) => {
     dispatch(deleteChat(id));

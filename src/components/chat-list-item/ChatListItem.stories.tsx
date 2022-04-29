@@ -1,7 +1,7 @@
 import { ChatListItem } from './ChatListItem';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 
 export default {
   title: 'ChatListItem',
@@ -9,9 +9,9 @@ export default {
 } as ComponentMeta<typeof ChatListItem>;
 
 const Template: ComponentStory<typeof ChatListItem> = (args) => (
-  <BrowserRouter>
+  <MemoryRouter>
     <ChatListItem {...args} />{' '}
-  </BrowserRouter>
+  </MemoryRouter>
 );
 
 export const Primary = Template.bind({});
