@@ -9,6 +9,11 @@ export interface ChatsType {
     messages: Message[];
   };
 }
+export interface ChatType {
+  name: string;
+  messages: Message[];
+}
+
 export type Entries<T> = {
   [K in keyof T]: [K, T[K]];
 }[keyof T][];

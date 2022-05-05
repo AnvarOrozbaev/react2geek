@@ -23,9 +23,8 @@ const profileSlice = createSlice({
     },
   },
 });
-export const selectIsChected = (state: RootState) =>
-  state.profileState.isChecked;
-export const selectName = (state: RootState) => state.profileState.name;
+export const selectIsChecked = (state: RootState) => state.profile.isChecked;
+export const selectName = (state: RootState) => state.profile.name;
 export const { checkboxToggled, changeName, checkboxSetTrue } =
   profileSlice.actions;
 export default profileSlice.reducer;

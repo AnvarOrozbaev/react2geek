@@ -1,6 +1,8 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import type { RootState } from '../../store/store';
 import { ChatsType } from '../../components/types';
+import { AUTHOR } from '../../const';
+import { nanoid } from 'nanoid';
 
 export interface ChatState {
   chats: ChatsType;
@@ -10,6 +12,30 @@ const initialState: ChatState = {
   chats: {},
   selectedId: '',
 };
+
+let timeout: ReturnType<typeof setTimeout>;
+export const addMessagebyBot = createAsyncThunk(
+  'chats/addMessagebyBot',
+  async (chatId: string, thunkAPI) => {
+    const { chatsState } = thunkAPI.getState() as RootState;
+    const botMessage = {
+      chatId,
+      author: AUTHOR.BOT,
+      text: 'robot message',
+      id: nanoid(),
+    };
+
+    if (timeout) {
+      clearTimeout(timeout);
+    }
+
+    timeout = setTimeout(() => {
+      if (chatId === chatsState.selectedId) {
+        thunkAPI.dispatch(addMessage(botMessage));
+      }
+    }, 1500);
+  }
+);
 const chatsSlice = createSlice({
   name: 'chats',
   initialState,
@@ -24,9 +50,8 @@ const chatsSlice = createSlice({
       delete state.chats[action.payload];
     },
     addMessage(state, action) {
-      const { selectedId } = state;
-      const { text, author, id } = action.payload;
-      state.chats[selectedId].messages.push({ id, text, author });
+      const { chatId, text, author, id } = action.payload;
+      state.chats[chatId].messages.push({ id, text, author });
     },
     setSelectedId(state, action) {
       state.selectedId = action.payload;

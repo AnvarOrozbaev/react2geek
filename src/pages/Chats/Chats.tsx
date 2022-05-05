@@ -1,5 +1,6 @@
 import React, { FC, useEffect, useMemo } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { useAppDispatch } from '../../store/store';
 import { Navigate } from 'react-router-dom';
 import { MessageForm } from '../../components/message-form/MessageForm';
 import { MessageList } from '../../components/message-list/MessageList';
@@ -10,6 +11,7 @@ import {
   addMessage,
   selectSelectedId,
   selectChats,
+  addMessagebyBot,
 } from '../../pages/chats/chatsSlice';
 import type { RootState } from '../../store/store';
 import './Chats.scss';
@@ -17,13 +19,14 @@ import './Chats.scss';
 export const Chats: FC = () => {
   const chats = useSelector(selectChats);
   const selectedId = useSelector(selectSelectedId);
-  const userName = useSelector((state: RootState) => state.profileState.name);
-  const dispatch = useDispatch();
+  const userName = useSelector((state: RootState) => state.profile.name);
+  const dispatch = useAppDispatch();
   const handleMessageSubmit = (value: string) => {
     let author;
     userName.length > 0 ? (author = userName) : (author = AUTHOR.USER);
     dispatch(
       addMessage({
+        chatId: selectedId,
         text: value,
         author,
         id: nanoid(),
@@ -34,27 +37,19 @@ export const Chats: FC = () => {
     if (selectedId !== '') {
       if (
         !selectedId.length ||
-        chats[selectedId].messages.length === 0 ||
-        chats[selectedId].messages[chats[selectedId].messages.length - 1]
+        chats[selectedId]?.messages.length === 0 ||
+        chats[selectedId]?.messages[chats[selectedId].messages.length - 1]
           .author === AUTHOR.BOT
       ) {
         return;
       }
+      dispatch(addMessagebyBot(selectedId));
     }
-    let timeout: ReturnType<typeof setTimeout>;
-    if (chats[selectedId]) {
-      timeout = setTimeout(() => {
-        const botMessage = {
-          author: AUTHOR.BOT,
-          text: 'robot message',
-          id: nanoid(),
-        };
-        dispatch(addMessage(botMessage));
-      }, 1500);
-    }
-    return () => clearTimeout(timeout);
   }, [chats, selectedId, dispatch]);
-  const keys = useMemo<Array<keyof typeof chats>>(()=>Object.keys(chats),[chats])
+  const keys = useMemo<Array<keyof typeof chats>>(
+    () => Object.keys(chats),
+    [chats]
+  );
 
   if (
     keys.length > 0 &&
