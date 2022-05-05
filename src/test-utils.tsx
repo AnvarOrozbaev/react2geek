@@ -14,7 +14,7 @@ function render(
     store = configureStore({
       reducer: {
         chatsState: chatsReducer,
-        profileState: profileReducer,
+        profile: profileReducer,
       },
     }),
     ...renderOptions

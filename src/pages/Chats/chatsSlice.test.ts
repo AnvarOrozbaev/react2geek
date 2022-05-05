@@ -1,7 +1,7 @@
 import { Action } from 'redux';
 import reducer, { addChat, deleteChat, addMessage } from './chatsSlice';
 
-describe('profileReducer', () => {
+describe('chatsReducer', () => {
   const emptyActions: Action = {
     type: '',
   };
@@ -40,7 +40,7 @@ describe('profileReducer', () => {
     expect(
       reducer(
         previousState,
-        addMessage({ text: 'test', author: 'author', id: '1' })
+        addMessage({ chatId: '1', text: 'test', author: 'author', id: '1' })
       )
     ).toEqual({
       chats: {

@@ -3,14 +3,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   checkboxToggled,
   changeName,
-  selectIsChected,
+  selectIsChecked,
   selectName,
 } from './profileSlice';
 import './Profile.scss';
 export const Profile: FC = () => {
   const [value, setValue] = useState('');
   const dispatch = useDispatch();
-  const isChecked = useSelector(selectIsChected);
+  const isChecked = useSelector(selectIsChecked);
   const userName = useSelector(selectName);
   const toggle = () => {
     dispatch(checkboxToggled());
