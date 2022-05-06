@@ -12,5 +12,5 @@ code {
     monospace;
 }
 * {
-  outline: none !important;
+  outline: 0 !important;
 }

@@ -51,18 +51,6 @@ export const Chats: FC = () => {
     [chats]
   );
 
-  if (
-    keys.length > 0 &&
-    selectedId.length > 0 &&
-    !keys.find((id) => id === selectedId)
-  ) {
-    return (
-      <Navigate
-        replace
-        to="/chats"
-      />
-    );
-  }
 
   return (
     <div className="container">

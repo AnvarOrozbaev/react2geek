@@ -1,5 +1,6 @@
 import React, { FC, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router'
 import { ChatListItem } from '../chat-list-item/ChatListItem';
 import { ChatAddForm } from '../chat-add-form/ChatAddForm';
 import {
@@ -16,6 +17,7 @@ import { nanoid } from '@reduxjs/toolkit';
 
 export const ChatList: FC = () => {
   const chats = useSelector(selectChats);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleAddChat = (name: string) => {
     const id = nanoid();
@@ -29,6 +31,7 @@ export const ChatList: FC = () => {
   const handleDeleteChat = (id: string) => {
     dispatch(deleteChat(id));
     dispatch(setSelectedId(''));
+    navigate('/chats');
   };
   const handleListItemClick = (id: string) => {
     dispatch(setSelectedId(id));
