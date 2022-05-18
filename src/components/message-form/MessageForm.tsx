@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useState, useRef, memo } from 'react';
 import InputBase from '@mui/material/InputBase';
-import './MessageForm.scss';
 import { useSelector } from 'react-redux';
 import { selectSelectedId } from '../../pages/chats/chatsSlice'
+import './MessageForm.scss';
 interface MessageFormProps {
   primary?: boolean;
   onSendMessage: (text: string) => void;

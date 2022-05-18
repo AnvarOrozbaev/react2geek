@@ -19,6 +19,7 @@ export const ChatList: FC = () => {
   const chats = useSelector(selectChats);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const selectedId = useSelector(selectSelectedId);
   const handleAddChat = (name: string) => {
     const id = nanoid();
     dispatch(addChat({ name, id }));
@@ -27,7 +28,6 @@ export const ChatList: FC = () => {
     () => Object.entries(chats),
     [chats]
   );
-  const selectedId = useSelector(selectSelectedId);
   const handleDeleteChat = (id: string) => {
     dispatch(deleteChat(id));
     dispatch(setSelectedId(''));

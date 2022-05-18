@@ -1,7 +1,6 @@
 import React, { FC, useEffect, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '../../store/store';
-import { Navigate } from 'react-router-dom';
 import { MessageForm } from '../../components/message-form/MessageForm';
 import { MessageList } from '../../components/message-list/MessageList';
 import { ChatList } from '../../components/chat-list/ChatList';

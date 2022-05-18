@@ -1,6 +1,7 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import profileReducer from '../pages/profile/profileSlice';
 import chatsReducer from '../pages/chats/chatsSlice';
+import articlesReducer from '../pages/articles/articlesSlice';
 import { useDispatch } from 'react-redux';
 import {
   persistStore,
@@ -18,6 +19,7 @@ import { combineReducers } from 'redux';
 const rootReducer = combineReducers({
   profile: profileReducer,
   chatsState: chatsReducer,
+  articles: articlesReducer,
 });
 
 const persistConfig = {
@@ -32,9 +34,7 @@ export const store = configureStore({
   reducer: persistedReducer,
   devTools: process.env.NODE_ENV !== 'production',
   middleware: getDefaultMiddleware({
-    serializableCheck: {
-      ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-    },
+    serializableCheck: false
   }),
 });
 export const persistor = persistStore(store);
