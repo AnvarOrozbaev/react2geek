@@ -1,6 +1,6 @@
 import React, { FC, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router'
+import { useNavigate } from 'react-router';
 import { ChatListItem } from '../chat-list-item/ChatListItem';
 import { ChatAddForm } from '../chat-add-form/ChatAddForm';
 import {

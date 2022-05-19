@@ -32,36 +32,36 @@ describe('profileReducer', () => {
     const previousState = {
       isChecked: false,
       name: '',
-      auth: false
+      auth: false,
     };
     expect(reducer(previousState, checkboxToggled())).toEqual({
       isChecked: true,
       name: '',
-      auth: false
+      auth: false,
     });
   });
   test('isChecked set true', () => {
     const previousState = {
       isChecked: false,
       name: '',
-      auth: false
+      auth: false,
     };
     expect(reducer(previousState, checkboxSetTrue())).toEqual({
       isChecked: true,
       name: '',
-      auth: false
+      auth: false,
     });
   });
   test('isChecked do not set false when invoke checkboxSetTrue ', () => {
     const previousState = {
       isChecked: true,
       name: '',
-      auth: false
+      auth: false,
     };
     expect(reducer(previousState, checkboxSetTrue())).toEqual({
       isChecked: true,
       name: '',
-      auth: false
+      auth: false,
     });
   });
 });

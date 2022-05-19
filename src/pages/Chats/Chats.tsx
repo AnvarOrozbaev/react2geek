@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useMemo } from 'react';
+import React, { FC, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '../../store/store';
 import { MessageForm } from '../../components/message-form/MessageForm';
@@ -45,11 +45,6 @@ export const Chats: FC = () => {
       dispatch(addMessagebyBot(selectedId));
     }
   }, [chats, selectedId, dispatch]);
-  const keys = useMemo<Array<keyof typeof chats>>(
-    () => Object.keys(chats),
-    [chats]
-  );
-
 
   return (
     <div className="container">

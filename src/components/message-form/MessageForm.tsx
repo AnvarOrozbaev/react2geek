@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useState, useRef, memo } from 'react';
 import InputBase from '@mui/material/InputBase';
 import { useSelector } from 'react-redux';
-import { selectSelectedId } from '../../pages/chats/chatsSlice'
+import { selectSelectedId } from '../../pages/chats/chatsSlice';
 import './MessageForm.scss';
 interface MessageFormProps {
   primary?: boolean;
@@ -12,7 +12,7 @@ export const MessageForm = memo<MessageFormProps>(
   ({ primary, onSendMessage }) => {
     const mode = primary ? '--secondary' : '--primary';
     const [value, setValue] = useState<string>('');
-    const selectedId = useSelector(selectSelectedId)
+    const selectedId = useSelector(selectSelectedId);
     const inputRef = useRef<HTMLInputElement>(null);
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       setValue(e.target.value);
@@ -28,11 +28,11 @@ export const MessageForm = memo<MessageFormProps>(
         inputRef.current.focus();
       }
     };
-    useEffect(()=>{
+    useEffect(() => {
       if (inputRef.current) {
         inputRef.current.focus();
       }
-    },[selectedId])
+    }, [selectedId]);
 
     return (
       <form

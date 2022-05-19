@@ -15,7 +15,12 @@ export const PublicRoute: FC<IPublicRoute> = ({
   const isAuth = useSelector(selectAuth);
 
   if (isAuth && restricted) {
-    return <Navigate to="/" replace />;
+    return (
+      <Navigate
+        to="/"
+        replace
+      />
+    );
   }
 
   return component ? component : <Outlet />;

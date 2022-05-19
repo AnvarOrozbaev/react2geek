@@ -1,14 +1,12 @@
 import React from 'react';
 import { MessageForm } from './MessageForm';
-import { render, fireEvent, screen } from '../../test-utils'
+import { render, fireEvent, screen } from '../../test-utils';
 import '@testing-library/jest-dom';
 
 describe('MessageForm', () => {
   it('render component', () => {
     const mockHandler = jest.fn();
-    render(
-    <MessageForm onSendMessage={mockHandler} />
-    );
+    render(<MessageForm onSendMessage={mockHandler} />);
   });
   it('render with snapshot', () => {
     const mockHandler = jest.fn();

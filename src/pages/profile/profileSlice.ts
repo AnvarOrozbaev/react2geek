@@ -8,7 +8,7 @@ export interface ProfileState {
 const initialState: ProfileState = {
   isChecked: false,
   name: '',
-  auth: false
+  auth: false,
 };
 const profileSlice = createSlice({
   name: 'profile',

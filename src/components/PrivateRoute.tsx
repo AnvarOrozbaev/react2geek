@@ -1,11 +1,5 @@
 import { useSelector } from 'react-redux';
-import {
-  Navigate,
-  Outlet,
-  Route,
-  RouteProps,
-  useOutlet,
-} from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
 import React, { FC } from 'react';
 
 import { selectAuth } from '../pages/profile/profileSlice';

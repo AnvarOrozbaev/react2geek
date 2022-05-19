@@ -6,8 +6,8 @@ import { Chats } from '../pages/chats/Chats';
 import { MyHeader } from '../components/my-header/MyHeader';
 import { SignIn } from '../pages/SignIn';
 import { SignUp } from '../pages/SignUp';
-import { PublicRoute } from './PublicRoute'
-import { PrivateRoute } from './PrivateRoute'
+import { PublicRoute } from './PublicRoute';
+import { PrivateRoute } from './PrivateRoute';
 export const AppRouter: FC = () => (
   <HashRouter>
     <Routes>
@@ -23,17 +23,32 @@ export const AppRouter: FC = () => (
           path="profile"
           element={<PrivateRoute component={<Profile />} />}
         />
-        <Route path="chats" element={<PrivateRoute />}>
-            <Route index element={<Chats />} />
-            <Route path=":chatId" element={<Chats />} />
-          </Route>
         <Route
-            path="signin"
-            element={<PublicRoute component={<SignIn />} />}
+          path="chats"
+          element={<PrivateRoute />}
+        >
+          <Route
+            index
+            element={<Chats />}
           />
-          <Route path="signup" element={<SignUp />} />
+          <Route
+            path=":chatId"
+            element={<Chats />}
+          />
+        </Route>
+        <Route
+          path="signin"
+          element={<PublicRoute component={<SignIn />} />}
+        />
+        <Route
+          path="signup"
+          element={<SignUp />}
+        />
       </Route>
-      <Route path="*" element={<h2>404</h2>} />
+      <Route
+        path="*"
+        element={<h2>404</h2>}
+      />
     </Routes>
   </HashRouter>
 );
