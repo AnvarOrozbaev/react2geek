@@ -4,7 +4,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import chatsReducer from './pages/chats/chatsSlice';
 import profileReducer from './pages/profile/profileSlice';
-
+import articlesReducer from './pages/articles/articlesSlice';
 type Props = {
   children?: JSX.Element;
 };
@@ -15,6 +15,7 @@ function render(
       reducer: {
         chatsState: chatsReducer,
         profile: profileReducer,
+        articles: articlesReducer,
       },
     }),
     ...renderOptions

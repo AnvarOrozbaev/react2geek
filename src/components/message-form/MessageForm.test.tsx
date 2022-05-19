@@ -1,6 +1,6 @@
 import React from 'react';
 import { MessageForm } from './MessageForm';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, fireEvent, screen } from '../../test-utils';
 import '@testing-library/jest-dom';
 
 describe('MessageForm', () => {

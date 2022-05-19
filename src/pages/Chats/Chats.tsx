@@ -1,7 +1,6 @@
-import React, { FC, useEffect, useMemo } from 'react';
+import React, { FC, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '../../store/store';
-import { Navigate } from 'react-router-dom';
 import { MessageForm } from '../../components/message-form/MessageForm';
 import { MessageList } from '../../components/message-list/MessageList';
 import { ChatList } from '../../components/chat-list/ChatList';
@@ -46,23 +45,6 @@ export const Chats: FC = () => {
       dispatch(addMessagebyBot(selectedId));
     }
   }, [chats, selectedId, dispatch]);
-  const keys = useMemo<Array<keyof typeof chats>>(
-    () => Object.keys(chats),
-    [chats]
-  );
-
-  if (
-    keys.length > 0 &&
-    selectedId.length > 0 &&
-    !keys.find((id) => id === selectedId)
-  ) {
-    return (
-      <Navigate
-        replace
-        to="/chats"
-      />
-    );
-  }
 
   return (
     <div className="container">
