@@ -1,25 +1,25 @@
 import { useDispatch } from 'react-redux';
 import React, { FC, useState } from 'react';
-
 import { changeAuth } from './profile/profileSlice';
+import { logIn } from '../services/firebase';
 
 export const SignIn: FC = () => {
-  const [login, setLogin] = useState('');
+
   const [password, setPassword] = useState('');
-  const [error, setError] = useState(false);
-
+  const [error, setError] = useState('');
+  const [email, setEmail] = useState('');
   const dispatch = useDispatch();
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    setError(false);
-    if (login === 'gb' && password === 'gb') {
-      dispatch(changeAuth(true));
-    } else {
-      setError(true);
+    setError('');
+
+    try {
+      await logIn(email, password);
+    } catch (err) {
+      setError((err as Error).message);
     }
-  };
+  }
 
   return (
     <>
@@ -28,9 +28,9 @@ export const SignIn: FC = () => {
       <form onSubmit={handleSubmit}>
         <p>Логин:</p>
         <input
-          type="text"
-          onChange={(e) => setLogin(e.target.value)}
-          value={login}
+          type="email"
+          onChange={(e) => setEmail(e.target.value)}
+          value={email}
         />
         <p>Пароль:</p>
         <input
@@ -41,8 +41,7 @@ export const SignIn: FC = () => {
         <br />
         <button>sign in</button>
 
-        {error && <p style={{ color: 'red' }}>Логин или пароль не верны</p>}
+        {error && <p style={{ color: 'red' }}>{error}</p>}
       </form>
     </>
-  );
-};
+  )};
