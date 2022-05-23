@@ -1,5 +1,8 @@
 import React, { FC } from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { useDispatch, useSelector  } from 'react-redux';
+import { Link, NavLink, Outlet } from 'react-router-dom';
+import { selectAuth } from '../../pages/profile/profileSlice';
+import { logOut } from '../../services/firebase';
 import './MyHeader.scss';
 const pages = [
   {
@@ -18,7 +21,18 @@ const pages = [
     name: 'Chats',
   },
 ];
-export const MyHeader: FC = () => (
+export const MyHeader: FC = () => { 
+  const dispatch = useDispatch();
+  const auth = useSelector(selectAuth);
+  const handleSignOut = async () => {
+
+    try {
+      await logOut();
+    } catch (err) {
+      console.log((err as Error).message);
+    }
+  };
+  return (
   <>
     <header>
       <ul className="menu-list">
@@ -34,10 +48,20 @@ export const MyHeader: FC = () => (
             </NavLink>
           </li>
         ))}
-      </ul>
+          </ul>
+         {auth ? (
+       
+        <button onClick={handleSignOut}>logout</button>
+      ) : (
+        
+        <>
+          <Link to="/signin">SingIn</Link> |<Link to="/signup">SingUp</Link>
+        </>
+      )}
+    
     </header>
     <main>
       <Outlet />
     </main>
   </>
-);
+)};

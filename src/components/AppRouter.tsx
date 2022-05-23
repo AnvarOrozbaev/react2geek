@@ -1,5 +1,5 @@
 import { HashRouter, Routes, Route } from 'react-router-dom';
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { Articles } from '../pages/articles/Articles';
 import { Profile } from '../pages/profile/Profile';
 import { Chats } from '../pages/chats/Chats';
@@ -8,7 +8,29 @@ import { SignIn } from '../pages/SignIn';
 import { SignUp } from '../pages/SignUp';
 import { PublicRoute } from './PublicRoute';
 import { PrivateRoute } from './PrivateRoute';
-export const AppRouter: FC = () => (
+import { auth } from '../services/firebase';
+import { useAppDispatch } from '../store/store';
+import { changeAuth } from '../pages/profile/profileSlice';
+import { initialMessagesFB } from '../pages/chats/chatsSlice';
+export const AppRouter: FC = () => {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        dispatch(changeAuth(true));
+      } else {
+        dispatch(changeAuth(false));
+      }
+    });
+
+    return unsubscribe;
+  }, []);
+
+  useEffect(() => {
+    dispatch(initialMessagesFB());
+  }, []);
+  return(
   <HashRouter>
     <Routes>
       <Route
@@ -51,4 +73,4 @@ export const AppRouter: FC = () => (
       />
     </Routes>
   </HashRouter>
-);
+)};
